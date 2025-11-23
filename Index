@@ -1,0 +1,428 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio - Bienvenido al Sitio Web del SGC Grupo Médico VITALIA</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primario: #0B7074; /* Azul más oscuro y profesional */
+            --color-secundario: #8ABCB9; /* Fondo más suave */
+            --color-texto: #333;
+            --color-texto-claro: #f0f0f0;
+            --color-resalte: #88908b; /* Azul de resalte */
+            --ancho-sidebar: 280px; /* Sidebar un poco más ancho */
+            --sombra-leve: rgba(0, 0, 0, 0.1);
+            --sombra-media: rgba(0, 0, 0, 0.15);
+        }
+
+        /* Estilos generales */
+        body {
+            font-family: 'Poppins', sans-serif; /* Nueva fuente */
+            margin: 0;
+            padding: 0;
+            background-color: var(--color-secundario);
+            color: var(--color-texto);
+            display: flex;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* ---------------------------------------------------- */
+        /* Sidebar (Menú de Navegación Lateral) */
+        /* ---------------------------------------------------- */
+        .sidebar {
+            width: var(--ancho-sidebar);
+            background-color: #fff;
+            box-shadow: 2px 0 10px var(--sombra-leve);
+            padding: 30px 0;
+            transition: transform 0.4s ease-in-out;
+            position: fixed;
+            height: 100%;
+            overflow-y: auto;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar .logo-container {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .sidebar .logo-container img {
+            max-width: 120px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px var(--sombra-leve);
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            color: var(--color-primario);
+            margin-top: 20px;
+            margin-bottom: 30px;
+            font-size: 1.5em;
+            font-weight: 600;
+        }
+
+        .sidebar nav {
+            flex-grow: 1;
+        }
+
+        .sidebar nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar nav ul li a {
+            display: flex;
+            align-items: center;
+            padding: 18px 25px;
+            text-decoration: none;
+            color: var(--color-texto);
+            font-weight: 400;
+            font-size: 1.05em;
+            border-left: 5px solid transparent;
+            transition: background-color 0.3s, color 0.3s, border-left-color 0.3s;
+        }
+
+        .sidebar nav ul li a:hover,
+        .sidebar nav ul li a.activo {
+            background-color: #e3f2fd;
+            color: var(--color-primario);
+            border-left-color: var(--color-resalte);
+            font-weight: 600;
+        }
+
+        .sidebar nav ul li a .fas {
+            margin-right: 15px;
+            font-size: 1.3em;
+            width: 25px;
+            text-align: center;
+        }
+
+        /* ---------------------------------------------------- */
+        /* Contenido Principal */
+        /* ---------------------------------------------------- */
+        .main-content {
+            margin-left: var(--ancho-sidebar);
+            flex-grow: 1;
+            transition: margin-left 0.4s ease-in-out;
+            position: relative;
+        }
+
+        .hero-banner {
+            height: 300px;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/1500x300/007bff/ffffff?text=GESTION+DE+CALIDAD') no-repeat center center;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-texto-claro);
+            text-align: center;
+            box-shadow: 0 4px 10px var(--sombra-leve);
+        }
+
+        .hero-banner h1 {
+            font-size: 3.5em;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .welcome-section {
+            padding: 40px 60px;
+            background-color: #fff;
+            margin: -60px 40px 40px 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px var(--sombra-media);
+            position: relative;
+            z-index: 10;
+        }
+
+        .welcome-section h2 {
+            color: var(--color-primario);
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .welcome-section p {
+            line-height: 1.8;
+            margin-bottom: 15px;
+            font-size: 1.05em;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .feature-item {
+            background-color: var(--color-secundario);
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(248, 3, 3, 0.07);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-item .fas {
+            font-size: 2.5em;
+            color: var(--color-resalte);
+            margin-bottom: 15px;
+        }
+
+        .feature-item h3 {
+            color: var(--color-primario);
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+
+        /* ---------------------------------------------------- */
+        /* Header Móvil y Botón de Menú */
+        /* ---------------------------------------------------- */
+        .header-movil {
+            display: none;
+            background-color: var(--color-primario);
+            color: white;
+            padding: 15px 20px;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1002;
+            box-shadow: 0 2px 8px var(--sombra-media);
+        }
+
+        .header-movil h1 {
+            font-size: 1.5em;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .menu-toggle {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.8em;
+            cursor: pointer;
+        }
+
+        /* Overlay para cuando el menú está abierto en móvil */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+        .overlay.visible {
+            display: block;
+        }
+
+
+        /* ---------------------------------------------------- */
+        /* Media Queries (Responsividad) */
+        /* ---------------------------------------------------- */
+        @media (max-width: 992px) {
+            .hero-banner h1 {
+                font-size: 2.8em;
+            }
+            .welcome-section {
+                padding: 30px 40px;
+                margin: -50px 20px 20px 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+
+            .header-movil {
+                display: flex;
+            }
+
+            .sidebar {
+                width: 75%;
+                max-width: 300px;
+                height: 100%;
+                top: 0;
+                left: 0;
+                transform: translateX(-100%);
+                padding-top: 80px;
+                box-shadow: 5px 0 15px var(--sombra-media);
+            }
+
+            .sidebar.abierto {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding-top: 70px;
+            }
+
+            .hero-banner {
+                height: 200px;
+            }
+
+            .hero-banner h1 {
+                font-size: 2em;
+            }
+
+            .welcome-section {
+                padding: 25px;
+                margin: -40px 15px 15px 15px;
+            }
+
+            .welcome-section h2 {
+                font-size: 1.8em;
+            }
+
+            .feature-item h3 {
+                font-size: 1.1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .sidebar {
+                width: 90%;
+            }
+            .welcome-section {
+                padding: 20px;
+                margin: -30px 10px 10px 10px;
+            }
+            .welcome-section h2 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="overlay" id="overlay" onclick="toggleMenu()"></div> 
+
+<header class="header-movil">
+        <h1>SGC</h1>
+        <button class="menu-toggle" aria-label="Abrir Menú" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </button>
+    </header>
+
+    <aside class="sidebar" id="sidebar">
+        <div class="logo-container">
+            
+<img src="https://drive.google.com/drive/folders/15WQAE2Vc23vV811kx0hl_oYchofgtSAr/LOGOVITALIA.jpg" alt="Logo SGC">
+        </div>
+        <h2>SGC ISO 9001</h2>
+        <nav>
+            <ul>
+		<li>
+                    <a href="Menu.html" class="activo">
+                        <i class="fas fa-home"></i> Inicio
+                    </a>
+                </li>
+
+                <!-- ENLACE ACTUALIZADO para apuntar a la nueva página de Contexto -->
+                <li>
+                    <a href="contexto.html"> 
+                        <i class="fas fa-globe"></i> Análisis del Contexto
+                    </a>
+                </li>
+                <li>
+                    <a href="liderazgo.html">
+                        <i class="fas fa-crown"></i> Liderazgo
+                    </a>
+                </li>
+                <li>
+                    <a href="Planificación.html">
+                        <i class="fas fa-clipboard-list"></i> Planificación
+                    </a>
+                </li>
+                <li>
+                    <a href="Apoyo.html">
+                        <i class="fas fa-handshake"></i> Apoyo
+                    </a>
+                </li>
+                <li>
+                    <a href="Operacion">
+                        <i class="fas fa-cogs"></i> Operación
+                    </a>
+                </li>
+                <li>
+                    <a href="Analisis">
+                        <i class="fas fa-chart-bar"></i> Medición, Análisis y Evaluación
+                    </a>
+                </li>
+                <li>
+                    <a href="Mejora">
+                        <i class="fas fa-lightbulb"></i> Mejora
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <section class="hero-banner">
+            <h1>Sistema de Gestión de Calidad</h1>
+        </section>
+
+        <section class="welcome-section">
+            <h2>Bienvenido a su Plataforma de SGC Grupo Medico VITALIA</h2>
+            <p>Este sistema ha sido diseñado para facilitar la gestión, seguimiento y mejora continua de todos los aspectos de su Sistema de Gestión de Calidad, siguiendo las directrices de la norma **ISO 9001:2015**.</p>
+            <p>Utilice el menú lateral (o el menú hamburguesa en dispositivos móviles) para navegar por las distintas secciones. Para empezar, haga clic en **1. Análisis del Contexto**.</p>
+
+            <div class="features-grid">
+                <div class="feature-item">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <h3>Visión General</h3>
+                    <p>Acceda rápidamente a los componentes clave de su SGC.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-project-diagram"></i>
+                    <h3>Procesos Integrados</h3>
+                    <p>Conecte y gestione todos los procesos de su organización.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Seguimiento y Análisis</h3>
+                    <p>Evalúe el rendimiento y tome decisiones basadas en datos.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-sync-alt"></i>
+                    <h3>Mejora Continua</h3>
+                    <p>Impulse la eficiencia y la satisfacción del cliente.</p>
+                </div>
+            </div>
+        </section>
+
+        
+</main>
+
+    <script>
+        function toggleMenu() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('overlay');
+            sidebar.classList.toggle('abierto');
+            overlay.classList.toggle('visible');
+        }
+    </script>
+</body>
+</html>
